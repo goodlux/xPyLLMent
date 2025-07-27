@@ -1,0 +1,81 @@
+# xPyLLMent Configuration
+
+# Database Configuration
+database:
+  name: "asi_arch_research"
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: ""
+  connection_pool_size: 10
+
+# LLM Configuration
+llm:
+  provider: "anthropic"  # anthropic or openai
+  model: "claude-3-sonnet-20240229"
+  # api_key: Set via ANTHROPIC_API_KEY or OPENAI_API_KEY environment variable
+  max_tokens: 4000
+  temperature: 0.7
+
+# Training Configuration
+training:
+  batch_size: 32
+  learning_rate: 0.0003
+  max_steps: 2000
+  eval_steps: 100
+  save_steps: 500
+  gradient_accumulation_steps: 1
+  warmup_steps: 100
+  max_grad_norm: 1.0
+  device: "auto"  # auto, cpu, cuda
+  mixed_precision: true
+
+# Evolution Configuration
+evolution:
+  population_size: 50
+  elite_size: 10
+  mutation_rate: 0.1
+  crossover_rate: 0.3
+  diversity_threshold: 0.8
+  fitness_weights:
+    performance: 0.7
+    efficiency: 0.2
+    novelty: 0.1
+
+# Evaluation Configuration
+evaluation:
+  benchmarks:
+    - "arc_challenge"
+    - "arc_easy"
+    - "boolq"
+    - "hellaswag"
+    - "piqa"
+    - "social_iqa"
+    - "winogrande"
+    - "lambada_openai"
+  few_shot_examples: 0
+  batch_size: 16
+  max_samples: null  # null for all samples
+
+# Multimedia Configuration (Future Features)
+multimedia:
+  enable_paper_processing: false
+  enable_visualizations: true
+  enable_video_generation: false
+  figure_extraction: false
+  max_paper_size_mb: 50
+
+# Monitoring Configuration
+monitoring:
+  use_wandb: true
+  wandb_project: "xpyllment"
+  wandb_entity: null  # Set to your W&B entity
+  log_level: "INFO"
+  save_artifacts: true
+  checkpoint_dir: "./checkpoints"
+
+# Global Settings
+project_name: "ASI-ARCH Research"
+experiment_name: null  # Set via CLI or config
+seed: 42
+debug: false
