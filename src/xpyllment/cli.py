@@ -354,5 +354,10 @@ def _display_final_results(status: dict):
         console.print("• Fitness function weights")
 
 
-if __name__ == '__main__':
+def main():
+    """Main entry point for the CLI"""
     cli()
+
+
+if __name__ == '__main__':
+    main()
