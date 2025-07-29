@@ -1,0 +1,37 @@
+# ASI-ARCH Docker Compose Configuration
+# Easy one-command setup for autonomous research
+
+version: '3.8'
+
+services:
+  asi-arch:
+    build: .
+    container_name: asi-arch-research
+    environment:
+      - PIXELTABLE_CONFIG=/app/.pixeltable
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    volumes:
+      # Persist research data
+      - asi_arch_data:/app/.pixeltable
+      # Mount current directory for development
+      - .:/app/src_dev:ro
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    command: >
+      bash -c "
+        echo '🧠 ASI-ARCH Docker Container Ready!'
+        echo '💡 Quick start commands:'
+        echo '  docker exec -it asi-arch-research python -m xpyllment.interactive_cli init'
+        echo '  docker exec -it asi-arch-research python -m xpyllment.interactive_cli discover'
+        echo '  docker exec -it asi-arch-research python -m xpyllment.interactive_cli status'
+        echo ''
+        echo '🎯 Starting interactive shell...'
+        bash
+      "
+
+volumes:
+  asi_arch_data:
+    driver: local

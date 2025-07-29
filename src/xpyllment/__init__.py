@@ -38,20 +38,28 @@ For more information, see the documentation at:
 https://github.com/your-org/xpyllment
 """
 
-from .core import ASIArchResearchSystem, create_research_system
-from .config import Config, load_config, create_default_config
-from .database import Database, connect_database
-from .evolution import EvolutionEngine, Individual, Population
-from .agents import (
-    ResearcherAgent, 
-    EngineerAgent, 
-    TrainingAgent, 
-    AnalystAgent,
-    BaseAgent
-)
-from .training import TrainingPipeline
-from .snapshots import SnapshotManager
-from .multimedia import PaperProcessor, VisualizationGenerator, VideoGenerator
+# Import our working ASI-ARCH system
+from .asi_arch import ASIArch, get_asi_arch, initialize_asi_arch
+
+# Legacy imports for backward compatibility (will be implemented later)
+try:
+    from .core import ASIArchResearchSystem, create_research_system
+    from .config import Config, load_config, create_default_config
+    from .database import Database, connect_database
+    from .evolution import EvolutionEngine, Individual, Population
+    from .agents import (
+        ResearcherAgent, 
+        EngineerAgent, 
+        TrainingAgent, 
+        AnalystAgent,
+        BaseAgent
+    )
+    from .training import TrainingPipeline
+    from .snapshots import SnapshotManager
+    from .multimedia import PaperProcessor, VisualizationGenerator, VideoGenerator
+except ImportError:
+    # These modules don't exist yet, but that's ok
+    pass
 
 # Version information
 __version__ = "0.1.0"
@@ -61,41 +69,10 @@ __description__ = "Autonomous AI Architecture Discovery System"
 
 # Main components for easy import
 __all__ = [
-    # Core system
-    "ASIArchResearchSystem",
-    "create_research_system",
-    
-    # Configuration
-    "Config", 
-    "load_config",
-    "create_default_config",
-    
-    # Database
-    "Database",
-    "connect_database", 
-    
-    # Evolution
-    "EvolutionEngine",
-    "Individual",
-    "Population",
-    
-    # AI Agents
-    "ResearcherAgent",
-    "EngineerAgent", 
-    "TrainingAgent",
-    "AnalystAgent",
-    "BaseAgent",
-    
-    # Training
-    "TrainingPipeline",
-    
-    # Snapshots
-    "SnapshotManager",
-    
-    # Multimedia (future)
-    "PaperProcessor",
-    "VisualizationGenerator", 
-    "VideoGenerator",
+    # Working ASI-ARCH System
+    "ASIArch",
+    "get_asi_arch", 
+    "initialize_asi_arch",
     
     # Metadata
     "__version__",
@@ -105,20 +82,20 @@ __all__ = [
 ]
 
 
-def quick_start(config_path=None):
+def quick_start(reset_db=False):
     """
     Quick start function for interactive use
     
-    Returns an initialized research system ready for use.
+    Returns an initialized ASI-ARCH system ready for use.
     
     Example:
         >>> import xpyllment
         >>> system = xpyllment.quick_start()
-        >>> await system.initialize()
-        >>> await system.run_research_loop(generations=5)
+        >>> exp_id = system.start_experiment('reasoning')
+        >>> results = system.get_experiment_results(exp_id)
     """
     
-    return create_research_system(config_path)
+    return initialize_asi_arch(reset_db=reset_db)
 
 
 def version_info():
@@ -147,9 +124,9 @@ def version_info():
 
 # Convenience function for CLI access
 def main():
-    """Entry point for CLI"""
-    from .cli import cli
-    cli()
+    """Entry point for CLI - uses our interactive CLI"""
+    from .interactive_cli import main as interactive_main
+    interactive_main()
 
 
 if __name__ == "__main__":

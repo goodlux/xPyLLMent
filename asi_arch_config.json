@@ -1,0 +1,10 @@
+{
+  "initialized": true,
+  "papers": {
+    "source": "demo"
+  },
+  "model": {
+    "source": "openai"
+  },
+  "setup_date": "2025-07-28 18:14:58"
+}

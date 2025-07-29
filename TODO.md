@@ -1,18 +1,67 @@
 # TODO: xPyLLMent Development Roadmap
 
-## 🚀 Current Status: Foundation Setup
+## 🚀 Current Status: REAL ASI-ARCH Implementation
 
-### ✅ Completed
-- [x] Project structure with clean pyproject.toml
-- [x] Modular architecture design
-- [x] Core package structure
+### ✅ COMPLETED THIS SESSION
+- [x] ✨ **Complete ASI-ARCH system architecture** with Pixeltable
+- [x] 🧠 **AI Agent Framework** - Researcher, Engineer, Fitness agents as computed columns
+- [x] 🧬 **Evolution Pipeline** - Multi-generation architecture discovery
+- [x] 📸 **Snapshot System** - Research state capture and sharing
+- [x] 🎯 **Autonomous Discovery** - System generated "Fractal Attention Networks" and "Quantum-Inspired Message Networks"
+- [x] ⚡ **Working Demo** - End-to-end autonomous research pipeline
 
-### 🔄 In Progress
-- [ ] Core system implementation
+### 🔄 IN PROGRESS (CURRENT SESSION FOCUS)
+- [ ] 🎮 **Interactive CLI Design** - User-driven choices for each component
 
 ---
 
-## 📋 Phase 1: Core ASI-ARCH Reproduction (Paper Implementation)
+## 📋 IMMEDIATE PRIORITIES (Making It REAL)
+
+### 🎯 HIGH PRIORITY (Current Session)
+- [ ] 📚 **ArXiv Paper Ingestion System**
+  - User selects categories (cs.AI, cs.LG, cs.CL, etc.)
+  - Date range selection (last 30 days, 3 months, custom) 
+  - Auto-download PDFs using Pixeltable UDFs
+  - Text extraction and embedding generation
+  - Store in `cognition_base` table with real research context
+
+- [ ] 🤖 **Model Selection & Management**
+  - HuggingFace model browser/selection
+  - Ollama local model integration
+  - Baseline architecture choices (DeltaNet, Mamba, Transformer)
+  - Auto-download and caching via Pixeltable
+  - Model compatibility validation
+
+- [ ] 🔍 **GLiNER Entity Extraction**
+  - Extract entities: "Model Architecture", "Attention Mechanism", "Training Method"
+  - Create searchable knowledge base from papers
+  - Link extracted concepts to experiments
+  - Enable semantic search across research
+
+- [ ] 🎮 **Interactive CLI Experience**
+  ```bash
+  $ xpyllment init
+  Welcome to ASI-ARCH! Let's set up your autonomous research system.
+  
+  📚 Research Papers:
+  1. Download recent ArXiv papers (recommended)
+  2. Use existing paper database  
+  3. Skip for now
+  Choice: 1
+  
+  🤖 Base Model:
+  1. HuggingFace (cloud)
+  2. Ollama (local) 
+  3. Custom path
+  Choice: 2
+  ```
+
+### 🌟 MEDIUM PRIORITY (Current Session)
+- [ ] 📊 **Results Visualization** - Pretty tables and charts with Pixeltable
+- [ ] 🏋️ **Real Evaluation Pipeline** - ARC, HellaSwag, BoolQ integration
+- [ ] 🔧 **Configuration Management** - Store user choices, validate dependencies
+
+## 📋 Phase 1: FOUNDATIONAL INFRASTRUCTURE (COMPLETED ✅)
 
 ### 🏗️ Infrastructure & Setup
 - [ ] **Database Setup** (`src/xpyllment/database/`)

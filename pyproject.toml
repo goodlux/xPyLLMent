@@ -32,9 +32,9 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 dependencies = [
-    # Core ML/AI Framework
-    "torch>=2.0.0",
-    "transformers>=4.30.0",
+    # Core ML/AI Framework (optional for CLI)
+    # "torch>=2.0.0,<2.7.0",  # Will be installed when needed
+    # "transformers>=4.30.0",  # Will be installed when needed
     "numpy>=1.21.0",
     "pandas>=1.3.0",
     # Pixeltable (REQUIRED for the database layer)
@@ -62,9 +62,14 @@ dependencies = [
     "aiofiles>=23.0.0",
     # Evolution & Optimization
     "deap>=1.3.0",
+    # ArXiv and PDF Processing
+    "arxiv>=2.1.0",
+    "feedparser>=6.0.0",
+    "requests>=2.31.0",
     # Basic Testing
     "pytest>=7.0.0",
     "pytest-asyncio>=0.21.0",
+    "gliner>=0.2.21",
 ]
 
 [project.optional-dependencies]
@@ -102,8 +107,8 @@ Homepage = "https://github.com/your-org/xpyllment"
 Repository = "https://github.com/your-org/xpyllment.git"
 
 [project.scripts]
-xpyllment = "xpyllment.cli:main"
-asi-arch = "xpyllment.cli:main"
+xpyllment = "xpyllment.interactive_cli:main"
+asi-arch = "xpyllment.interactive_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

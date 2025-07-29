@@ -27,7 +27,7 @@ console = Console()
 @click.option('--config', '-c', type=click.Path(exists=True), help='Configuration file path')
 @click.pass_context
 def cli(ctx, config):
-    """ASI-ARCH Research System - Autonomous Architecture Discovery"""
+    """xPyLLMent ASI-ARCH Research System - Autonomous Architecture Discovery"""
     
     ctx.ensure_object(dict)
     ctx.obj['config_path'] = Path(config) if config else None
